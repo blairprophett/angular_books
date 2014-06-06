@@ -1,7 +1,5 @@
-BookRouter = angular.module("BookRouter", [])
-
-#setup the angular router during the config state of the application
-BookRouter.config(["$routeProvider", "$locationProvider", ($routeProvider, $locationProvider) ->
+BookRouter = angular.module("BookRouter",[])
+BookRouter.config(["$routeProvider", "$locationProvider", ($routeProvider, $locationProvider)->
   $routeProvider
     .when("/books", {
       templateUrl: "/books_templates/index",
@@ -11,7 +9,7 @@ BookRouter.config(["$routeProvider", "$locationProvider", ($routeProvider, $loca
       templateUrl: "/books_templates/show",
       controller: "BookDetailsCtrl"
     })
-    .otherwise({ #this controls for when a wrong route is typed in
+    .otherwise({
       redirectTo: "/books"
     })
   $locationProvider.html5Mode(true)

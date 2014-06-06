@@ -4,7 +4,8 @@ BookApp = angular.module("BookApp", [
   "ngResource",
   "BookRouter",
   "BookControllers",
-  "BookServices"
+  "BookServices",
+  "BookDirectives"
 ])
 
 # Define Config

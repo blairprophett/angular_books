@@ -1,11 +1,10 @@
 BookControllers = angular.module("BookControllers", [])
-
-#Need a BookDetailsController
-BookControllers.controller("BookDetailsCtrl", ["$scope", "$http", "$routeParams", ($scope, $http, $routeParams) ->
+# Need a BookDetailsCtrl
+BookControllers.controller("BookDetailsCtrl", ["$scope", "$http", "$routeParams", ($scope, $http, $routeParams)->
   $scope.book_id = $routeParams.id
 
-  $http.get("/books/#{$scope.book_id}.json").success((data)->
-    $scope.book = data)
+  $http.get("/books/#{$scope.book_id}.json")
+    .success((data)-> $scope.book = data)
 ])
 
 # Define Controller
@@ -13,12 +12,10 @@ BookControllers.controller("BooksCtrl", ["$scope", "$http", "Books", ($scope, $h
 
   $scope.books = []
 
-  Books.query(data) ->
-    console.log("RETRIEVED ALL BOOKS!")
+  Books.query (data)-> 
+    console.log("RETRIEVED ALL BOOKS!!!")
     $scope.books = data
 
-  # $http.get("/books.json").success (data)->
-  #   $scope.books = data
 
   $scope.addBook = ->
     console.log $scope.newBook

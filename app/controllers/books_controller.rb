@@ -1,7 +1,9 @@
 class BooksController < ApplicationController
   before_action :set_book, only: [:show, :update, :destroy]
-  #creates a before_action that just returns the template without the layout
+  # create a before_action that just returns the template
+  #   without the layout
   before_action :render_main_layout_if_format_html
+
   respond_to :json, :html
 
   layout :false
@@ -36,9 +38,10 @@ class BooksController < ApplicationController
   end
 
   def render_main_layout_if_format_html
-    #check the request format
+    # check the request format
     if request.format.symbol == :html
-      render 'layouts/application'
+      render "layouts/application"
+    end
   end
-end
+
 end
